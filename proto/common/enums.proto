@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package common;
+
+enum DeliveryStatus {
+    DELIVERY_STATUS_UNKNOWN = 0;
+    UPLOADING = 1;
+    SENDING = 2;
+    SENT = 3;
+    DELIVERED = 4;
+    READ = 5;
+    FAILED = 6;
+    DELETED = 7;
+    EDITED = 8;
+}
+
+enum ChatType {
+    CHAT_TYPE_UNKNOWN = 0;
+    DIALOGUE = 1;
+    GROUP = 2;
+}
+
+enum ChatEntityType {
+    CHAT_UNKNOWN = 0;
+    POST = 1;
+    COMMENT = 2;
+}
+
+enum LayerType {
+    LAYER_TYPE_UNKNOWN = 0;
+    TEXT = 1;
+    GIF = 2;
+    STICKER = 3;
+}
+
+enum UserStatus {
+    USER_STATUS_UNKNOWN = 0;
+    ONLINE = 1;
+    OFFLINE = 2;
+    TYPING = 3;
+    ACTIVE = 4;
+    CAPTURING = 5;
+}
+
+enum MediaType {
+    MEDIA_TYPE_UNKNOWN = 0;
+    VIDEO = 1;
+    IMAGE = 2;
+}
+
+enum MemberRole {
+    MEMBER_ROLE_UNKNOWN = 0;
+    OWNER = 1;
+    MEMBER = 2;
+}
+
+enum PostType {
+    POST_TYPE_UNKNOWN = 0;
+    BUBBLE = 1;
+    FRAME = 2;
+    TOPIC = 3;
+}

@@ -1,0 +1,20 @@
+Packages
+.build
+xcuserdata
+*.xcodeproj
+DerivedData/
+.DS_Store
+db.sqlite
+.swiftpm
+.env
+.env.*
+! .env.example
+.vscode
+
+# Secrets / credentials — never commit
+*.p8
+*.pem
+*.key
+*.crt
+*.p12
+Resources/AuthKey_*.p8

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package services;
+
+// Import of the subscription request
+import "requests/contact_requests.proto";
+import "responses/contact_responses.proto";
+
+// Service for subscribing to user statuses
+service ContactWithUserActivityStream {
+    rpc ContactUserActivityStream (stream contact_requests.UploadContact) returns (stream contact_responses.ContactWithUserActivity);
+}
+

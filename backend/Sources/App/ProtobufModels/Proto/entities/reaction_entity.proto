@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/timestamp.proto";
+import "common/enums.proto";
+
+// Request identifier
+message ReactionEntity {
+    common.ReactionId reaction_id = 1;
+    common.PostId post_id = 2;
+    common.CommentId comment_id = 3;
+    common.ChatEntityType chat_entity_type = 4;
+    common.ChatMemberId member_id = 5;
+    
+    string emoji = 6;
+    common.Timestamp timestamp = 7;
+}

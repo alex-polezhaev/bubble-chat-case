@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package common_requests;
+
+import "common/timestamp.proto";
+import "common/enums.proto";
+import "common/identifiers.proto";
+
+message DeliveryStatusPayload {
+    common.ChatId chat_id = 1;
+    common.ChatMemberId member_id = 2;
+    common.DeliveryTrackId track_id = 3;
+    common.DeliveryStatus delivery_status = 4;
+    common.PostId post_id = 5;
+    common.CommentId comment_id = 6;
+    common.LayerId layer_id = 7;
+    common.ReactionId reaction_id = 8;
+    common.Timestamp timestamp = 9;
+}

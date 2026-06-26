@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/timestamp.proto";
+import "common/enums.proto";
+
+message PublicUserActivityEntity {
+    common.UserActivityId user_activity_id = 1;
+    common.UserStatus user_status = 2;
+    common.Timestamp last_active_at = 3;
+}

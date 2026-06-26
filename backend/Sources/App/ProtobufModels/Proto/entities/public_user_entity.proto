@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+
+// Request identifier
+message PublicUserEntity {
+    common.UserId user_id = 1;
+    string first_name = 2; 
+    string last_name = 3;
+    string avatar = 4;
+    string phone = 5;
+}
+

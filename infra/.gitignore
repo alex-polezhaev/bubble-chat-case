@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# TLS certificates and private keys — bring your own, never commit
+Nginx/certs/
+*.crt
+*.key
+*.pem
+
+# Postgres data volume
+Postgres/data/
+
+# Backend checked out by `make del-clone-repo`
+BubbleBackendVapor/
+
+# OS noise
+.DS_Store

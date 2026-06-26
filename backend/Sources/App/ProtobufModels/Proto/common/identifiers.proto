@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package common;
+
+// Request identifier
+message RequestId {
+    string value = 1;
+}
+
+message ReplyToId {
+    string server = 1;
+}
+
+// MARK: - SERVER IDENT
+
+// User identifier
+message UserId {
+    string server = 1;
+}
+
+message UserActivityId {
+    string server = 1;
+}
+
+// MARK: - Main
+
+message ChatId {
+    string server = 1;
+    string client = 2;
+}
+
+message PostId {
+    string server = 1;
+    string client = 2;
+}
+
+message MediaId {
+    string server = 1;
+    string client = 2;
+}
+
+// MARK: - ClientIdent
+
+message CommentId {
+    string server = 1;
+    string client = 2;
+}
+
+message ChatMemberId {
+    string server = 1;
+    string client = 2;
+}
+
+message ReactionId {
+    string server = 1;
+    string client = 2;
+}
+
+message LayerId {
+    string server = 1;
+    string client = 2;
+}
+
+message ContactId {
+    string server = 1;
+    string client = 2;
+}
+
+message DeliveryTrackId {
+    string server = 1;
+    string client = 2;
+}
+

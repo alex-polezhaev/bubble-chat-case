@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package contact_responses;
+
+import "common/identifiers.proto";
+import "entities/public_user_entity.proto";
+import "entities/public_user_activity_entity.proto";
+
+message ContactWithUserActivity {
+    common.ContactId contact_id = 1;
+    entities.PublicUserEntity user = 2;
+    entities.PublicUserActivityEntity user_activity = 3;
+}
+

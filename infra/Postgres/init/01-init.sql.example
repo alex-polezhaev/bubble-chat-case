@@ -1,0 +1,13 @@
+-- Example PostgreSQL init script.
+-- Files in ./Postgres/init are mounted into /docker-entrypoint-initdb.d and run
+-- ONCE, the first time the database container starts with an empty data volume.
+--
+-- Rename this file to a real ".sql" (or ".sh") to activate it, e.g. 01-init.sql.
+-- The database named by POSTGRES_DB and the POSTGRES_USER are created automatically
+-- by the official postgres image, so you only need extra setup here.
+
+-- Example: enable a commonly used extension.
+-- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Example: create an additional schema.
+-- CREATE SCHEMA IF NOT EXISTS app;

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/timestamp.proto";
+import "common/enums.proto";
+
+// Request identifier
+message LayerEntity {
+    common.LayerId layer_id = 1;
+    common.PostId post_id = 2;
+    common.ChatMemberId member_id = 3;
+    
+    common.LayerType layer_type = 4;
+    double x = 5;
+    double y = 6;
+    double scale = 7;
+    double rotation = 8;
+    
+    oneof attribute {
+        TextAttributes textAttributes = 9;
+        GifAttributes gifAttributes = 10;
+        StickerAttributes stickerAttributes = 11;
+    }
+    common.Timestamp timestamp = 12;
+}
+
+// Message for TextAttributes
+message TextAttributes {
+    string text = 1;
+    string fontStyle = 2;
+    string fontColor = 3;
+    double fontSize = 4;
+    string backgroundStyle = 5;
+    string backgroundColor = 6;
+}
+
+// Message for GifAttributes
+message GifAttributes {
+    string url = 1;
+    double width = 2;
+    double height = 3;
+}
+
+// Message for StickerAttributes
+message StickerAttributes {
+    string url = 1;
+    double width = 2;
+    double height = 3;
+    double rotation = 4;
+}
+
+

@@ -1,0 +1,52 @@
+version: '3.8'
+
+x-shared_environment: &shared_environment
+  # LOG_LEVEL: ${LOG_LEVEL:-debug}
+  DATABASE_HOST: postgres
+
+services:
+  nginx:
+    build:
+      context: ./Nginx
+      dockerfile: Dockerfile.prod
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      # Bring your own TLS cert (e.g. certbot). Place your-domain.crt / your-domain.key here.
+      - './Nginx/certs:/etc/nginx/certs:ro'
+
+  postgres:
+    image: postgres:17
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./Postgres/data:/var/lib/postgresql/data
+      - ./Postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - '6010:5432'
+
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '6002:8080'
+
+  app:
+    image: vaporenviroment-app
+    build:
+      context: BubbleBackendVapor
+      dockerfile: Dockerfile
+    environment:
+      <<: *shared_environment
+    command:
+      ['/app/.build/release/App', 'serve']
+    restart: always
+    depends_on:
+    - postgres

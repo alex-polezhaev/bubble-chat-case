@@ -1,0 +1,35 @@
+# ---- OS / editor ----
+.DS_Store
+.vscode/
+.idea/
+*.xcuserstate
+
+# ---- Secrets — NEVER commit ----
+.env
+.env.*
+!.env.example
+*.p8
+*.pem
+*.key
+*.crt
+*.p12
+*.mobileprovision
+**/ssl/*.key
+**/ssl/*.crt
+**/keys/*.key
+
+# ---- Swift / Xcode ----
+.build/
+.swiftpm/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# ---- Node ----
+node_modules/
+dist/
+
+# ---- Docker / data / logs ----
+postgres-data/
+*.log

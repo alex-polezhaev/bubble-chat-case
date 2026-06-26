@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package services;
+
+import "requests/client_requests.proto";
+import "responses/server_responses.proto";
+
+service ClientToServerStream {
+    rpc ClientStream(stream requests.ClientRequest) returns (stream responses.ServerResponse);
+}

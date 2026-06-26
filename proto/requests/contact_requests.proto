@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package contact_requests;
+
+import "common/identifiers.proto";
+
+message UploadContact {
+    common.ContactId contact_id = 1;
+    string given_name = 2;
+    string family_name = 3;
+    repeated string phone_numbers = 4;
+}

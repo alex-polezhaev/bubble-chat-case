@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/enums.proto";
+
+// Request identifier
+message ReplyEntity {
+    common.ReplyToId reply_to_id = 1;
+    common.ChatEntityType reply_entity_type = 2;
+}

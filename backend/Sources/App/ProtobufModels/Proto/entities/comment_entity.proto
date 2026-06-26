@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/timestamp.proto";
+
+import "entities/reply_entity.proto";
+
+// Request identifier
+message CommentEntity {
+    common.CommentId comment_id = 1;
+    common.PostId post_id = 2;
+    common.ChatMemberId member_id = 3;
+    
+    string text = 4;
+    
+    entities.ReplyEntity reply_entity = 5;
+    common.Timestamp timestamp = 6;
+}

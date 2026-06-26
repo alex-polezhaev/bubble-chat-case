@@ -1,0 +1,40 @@
+version: '3.8'
+
+x-shared_environment: &shared_environment
+  # LOG_LEVEL: ${LOG_LEVEL:-debug}
+  DATABASE_HOST: postgres
+
+services:
+  nginx:
+    build:
+      context: ./Nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '80:80'
+
+  postgres:
+    image: postgres:17
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}          # Database user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}  # Database password
+      POSTGRES_DB: ${POSTGRES_DB}              # Database name
+    ports:
+      - "5432:5432"                            # Expose port 5432
+    volumes:
+      - ./Postgres/data:/var/lib/postgresql/data       # Persist data in a volume
+      - ./Postgres/init:/docker-entrypoint-initdb.d:ro  # Init scripts (run once on first start)
+
+  app:
+    image: vaporenviroment-app
+    # build:
+    #   context: BubbleBackendVapor
+    #   dockerfile: Dockerfile
+    environment:
+      <<: *shared_environment
+    command:
+      ['/app/.build/release/App', 'serve']
+    restart: always
+    depends_on:
+    - postgres

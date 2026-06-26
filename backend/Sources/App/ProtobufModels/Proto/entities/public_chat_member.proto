@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package entities;
+
+import "common/identifiers.proto";
+import "common/enums.proto";
+
+// Request identifier
+message PublicChatMemberEntity {
+    common.ChatMemberId member_id = 1;
+    common.ChatId chat_id = 2;
+    common.UserId user_id = 3;
+    common.MemberRole role = 4;
+}

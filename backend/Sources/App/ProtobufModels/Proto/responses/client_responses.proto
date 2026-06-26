@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package responses;
+
+import "common/identifiers.proto";
+
+message ClientResponse {
+    common.RequestId request_id = 1; // ID of the corresponding request
+    bool success = 2;               // Whether the operation succeeded
+    string error_message = 3;       // Error description if unsuccessful
+}

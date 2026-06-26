@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package common;
+
+// Timestamp in ISO 8601 format
+message Timestamp {
+    string iso_date = 1;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package requests;
+
+import "common/identifiers.proto";
+
+import "entities/comment_entity.proto";
+import "entities/layer_entity.proto";
+import "entities/post_entity.proto";
+import "entities/reaction_entity.proto";
+
+
+import "common_requests/common_requests.proto";
+
+
+
+message ServerRequest {
+    common.RequestId request_id = 1;
+    oneof payload {
+        entities.PostEntity request_receive_post = 2;
+        entities.CommentEntity request_receive_comment = 3;
+        entities.LayerEntity request_receive_layer = 4;
+        entities.ReactionEntity request_receive_reaction = 5;
+        
+        common_requests.DeliveryStatusPayload request_receive_status = 6;
+    }
+}
